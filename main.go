@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"os"
 	"sesi6-gin/config"
 	"sesi6-gin/httpserver"
 	"sesi6-gin/httpserver/controllers"
@@ -22,7 +24,7 @@ func main() {
 	router := gin.Default()
 
 	app := httpserver.NewRouter(router, studentHandler)
-	app.Start(":4000")
+	app.Start(fmt.Sprintf(":%s", os.Getenv("PORT")))
 
 	// app := httpserver.CreateRouter()
 	// app.Run(":4000")
