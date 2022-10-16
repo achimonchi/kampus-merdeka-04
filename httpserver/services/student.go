@@ -2,6 +2,7 @@ package services
 
 import (
 	"database/sql"
+	"fmt"
 	"sesi6-gin/httpserver/controllers/params"
 	"sesi6-gin/httpserver/controllers/views"
 	"sesi6-gin/httpserver/repositories"
@@ -37,7 +38,7 @@ func (s *StudentSvc) CreateStudent(req *params.StudentCreateRequest) *views.Resp
 	id := "S-1"
 	if students != nil {
 		if len(*students) > 0 {
-			// id = fmt.Sprintf("S-%d", len(*students)+1)
+			id = fmt.Sprintf("S-%d", len(*students)+1)
 		}
 	}
 	student.ID = &id
