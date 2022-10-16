@@ -3,16 +3,17 @@ package config
 import (
 	"database/sql"
 	"fmt"
+	"os"
 
 	_ "github.com/lib/pq"
 )
 
-const (
-	host           = "localhost"
-	port           = "8881"
-	user           = "nbcamp-user"
-	password       = "nbcamp-pass"
-	dbname         = "hacktiv8"
+var (
+	host           = os.Getenv("DB_HOST")
+	port           = os.Getenv("DB_PORT")
+	user           = os.Getenv("DB_USER")
+	password       = os.Getenv("DB_PASS")
+	dbname         = os.Getenv("DB_NAME")
 	dbMaxIdle      = 4
 	dbMaxOpenConns = 25
 )
